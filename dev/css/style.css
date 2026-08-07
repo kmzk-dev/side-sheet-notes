@@ -1,0 +1,60 @@
+body {
+  font-size: 0.85rem;
+  background-color: #f8f9fa;
+  user-select: none;
+}
+
+.table-container {
+  max-height: calc(100vh - 60px);
+  overflow: auto;
+}
+
+.sheet-cell {
+  min-width: 80px;
+  outline: none;
+  user-select: text;
+  background-color: #ffffff;
+}
+
+/* 行番号セル */
+.row-header {
+  width: 35px;
+  background-color: #e9ecef !important;
+  font-weight: normal !important;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* 選択された行のハイライト */
+tr.selected-row td {
+  background-color: #dbeafe !important;
+}
+
+tr.selected-row td.sheet-cell {
+  background-color: #eff6ff !important;
+}
+
+/* セルフォーカス時 */
+.sheet-cell:focus {
+  background-color: #e8f0fe !important;
+  box-shadow: inset 0 0 0 2px #0d6efd;
+}
+
+/* アイコンボタン固定幅 */
+.icon-btn {
+  width: 36px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* カスタムコンテキストメニュー */
+#contextMenu {
+  position: fixed;
+  display: none;
+  z-index: 1000;
+  font-size: 0.8rem;
+  min-width: 140px;
+}

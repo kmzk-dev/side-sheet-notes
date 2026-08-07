@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Sheet Notes</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="p-2">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h6 class="m-0 fw-bold">Side Sheet Notes</h6>
+    <div class="btn-group">
+      <!-- 一括クリア (ゴミ箱アイコン) -->
+      <button id="clearAllBtn" class="btn btn-sm btn-outline-danger icon-btn" title="一括クリア">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg>
+      </button>
+      <!-- コピー (クリップボード/コピーアイコン) -->
+      <button id="copyCsvBtn" class="btn btn-sm btn-outline-primary icon-btn" title="CSVコピー">
+        <svg id="copyIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6z"/>
+          <path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1H2z"/>
+        </svg>
+        <svg id="checkIcon" class="d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+      <!-- CSV出力 (ダウンロードアイコン) -->
+      <button id="exportCsvBtn" class="btn btn-sm btn-success icon-btn" title="CSVダウンロード">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container border rounded bg-white">
+    <table class="table table-bordered m-0 sheet-table" id="sheetTable">
+      <tbody id="sheetBody">
+        <!-- JSで動的生成 -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- カスタムコンテキストメニュー -->
+  <div id="contextMenu" class="dropdown-menu shadow-sm">
+    <button class="dropdown-item" id="ctxInsertRowAbove">上に行を挿入</button>
+    <button class="dropdown-item" id="ctxInsertRowBelow">下に行を挿入</button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item text-danger" id="ctxDeleteRow">行を削除</button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item" id="ctxInsertColLeft">左に列を挿入</button>
+    <button class="dropdown-item" id="ctxInsertColRight">右に列を挿入</button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item text-danger" id="ctxDeleteCol">列を削除</button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item" id="ctxFillEmpty">空白セルを補完...</button>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/sidepanel.js"></script>
+</body>
+</html>
