@@ -342,14 +342,14 @@ document.addEventListener('DOMContentLoaded', () => {
       
       copyIcon.classList.add('d-none');
       checkIcon.classList.remove('d-none');
-      copyCsvBtn.classList.remove('btn-outline-primary');
+      copyCsvBtn.classList.remove('btn-outline-secondary');
       copyCsvBtn.classList.add('btn-primary');
 
       setTimeout(() => {
         copyIcon.classList.remove('d-none');
         checkIcon.classList.add('d-none');
         copyCsvBtn.classList.remove('btn-primary');
-        copyCsvBtn.classList.add('btn-outline-primary');
+        copyCsvBtn.classList.add('btn-outline-secondary');
       }, 1500);
     } catch (err) {
       console.error('クリップボードへのコピーに失敗しました:', err);
@@ -366,14 +366,14 @@ document.addEventListener('DOMContentLoaded', () => {
       
       copyMdIcon.classList.add('d-none');
       checkMdIcon.classList.remove('d-none');
-      copyMdBtn.classList.remove('btn-outline-info');
+      copyMdBtn.classList.remove('btn-outline-secondary');
       copyMdBtn.classList.add('btn-info');
 
       setTimeout(() => {
         copyMdIcon.classList.remove('d-none');
         checkMdIcon.classList.add('d-none');
         copyMdBtn.classList.remove('btn-info');
-        copyMdBtn.classList.add('btn-outline-info');
+        copyMdBtn.classList.add('btn-outline-secondary');
       }, 1500);
     } catch (err) {
       console.error('クリップボードへのコピーに失敗しました:', err);

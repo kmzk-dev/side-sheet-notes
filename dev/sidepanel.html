@@ -12,14 +12,14 @@
     <h6 class="m-0 fw-bold">Side Sheet Notes</h6>
     <div class="btn-group">
       <!-- 一括クリア (ゴミ箱アイコン) -->
-      <button id="clearAllBtn" class="btn btn-sm btn-outline-danger icon-btn" title="一括クリア">
+      <button id="clearAllBtn" class="btn btn-sm btn-outline-secondary icon-btn" title="一括クリア">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
           <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
         </svg>
       </button>
       <!-- コピー (クリップボード/コピーアイコン) -->
-      <button id="copyCsvBtn" class="btn btn-sm btn-outline-primary icon-btn" title="CSVコピー">
+      <button id="copyCsvBtn" class="btn btn-sm btn-outline-secondary icon-btn" title="CSVコピー">
         <svg id="copyIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6z"/>
           <path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1H2z"/>
@@ -29,7 +29,7 @@
         </svg>
       </button>
       <!-- MDテーブルコピー -->
-      <button id="copyMdBtn" class="btn btn-sm btn-outline-info icon-btn" title="MDテーブルコピー">
+      <button id="copyMdBtn" class="btn btn-sm btn-outline-secondary icon-btn" title="MDテーブルコピー">
         <svg id="copyMdIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
         </svg>
@@ -38,7 +38,7 @@
         </svg>
       </button>
       <!-- CSV出力 (ダウンロードアイコン) -->
-      <button id="exportCsvBtn" class="btn btn-sm btn-success icon-btn" title="CSVダウンロード">
+      <button id="exportCsvBtn" class="btn btn-sm btn-outline-secondary icon-btn" title="CSVダウンロード">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
           <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <div class="table-container border rounded bg-white">
+  <div class="table-container rounded bg-white">
     <table class="table table-bordered m-0 sheet-table" id="sheetTable">
       <tbody id="sheetBody">
         <!-- JSで動的生成 -->
