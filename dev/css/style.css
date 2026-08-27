@@ -58,3 +58,40 @@ tr.selected-row td.sheet-cell {
   font-size: 0.8rem;
   min-width: 140px;
 }
+
+/* ヘッダーアイコンボタンのホバー・フォーカス時カラー変更 */
+#clearAllBtn:hover, #clearAllBtn:focus {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #fff !important;
+}
+#copyCsvBtn:hover, #copyCsvBtn:focus {
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+  color: #fff !important;
+}
+#copyMdBtn:hover, #copyMdBtn:focus {
+  background-color: #0dcaf0 !important;
+  border-color: #0dcaf0 !important;
+  color: #fff !important;
+}
+#exportCsvBtn:hover, #exportCsvBtn:focus {
+  background-color: #198754 !important;
+  border-color: #198754 !important;
+  color: #fff !important;
+}
+
+/* 入力テーブルのフラット・細線化デザイン */
+.sheet-table {
+  border-collapse: collapse !important;
+  border: 1px solid #dee2e6 !important;
+}
+
+.sheet-table th,
+.sheet-table td {
+  border: 1px solid #dee2e6 !important;
+}
+
+.table-container {
+  border: none !important;
+}
