@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyCsvBtn = document.getElementById('copyCsvBtn');
   const copyIcon = document.getElementById('copyIcon');
   const checkIcon = document.getElementById('checkIcon');
+  const copyMdBtn = document.getElementById('copyMdBtn');
+  const copyMdIcon = document.getElementById('copyMdIcon');
+  const checkMdIcon = document.getElementById('checkMdIcon');
   const clearAllBtn = document.getElementById('clearAllBtn');
   const contextMenu = document.getElementById('contextMenu');
 
@@ -295,9 +298,38 @@ document.addEventListener('DOMContentLoaded', () => {
   function generateCsvString() {
     const data = getTableData();
     if (data.length === 0) return '';
-    return data.map(row => {
-      return row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(',');
-    }).join('\n');
+
+    const header = data[0].map(cell => `"${cell.replace(/"/g, '""')}"`).join(',');
+
+    // 2行目以降がデータ行（すべてのセルが空白の行は除外する）
+    const body = data.slice(1)
+      .filter(row => !row.every(cell => cell.trim() === ''))
+      .map(row => {
+        return row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(',');
+      }).join('\n');
+
+    return [header, body].filter(Boolean).join('\n');
+  }
+
+  // MDテーブル文字列生成ヘルパー
+  function generateMdTableString() {
+    const data = getTableData();
+    if (data.length === 0) return '';
+
+    const escapePipe = (str) => str.replace(/\|/g, '\\|');
+
+    // 1行目をヘッダーとして扱う
+    const header = '|' + data[0].map(escapePipe).join('|') + '|';
+    const separator = '|' + new Array(data[0].length).fill('---').join('|') + '|';
+    
+    // 2行目以降がデータ行（すべてのセルが空白の行は除外する）
+    const body = data.slice(1)
+      .filter(row => !row.every(cell => cell.trim() === ''))
+      .map(row => {
+        return '|' + row.map(escapePipe).join('|') + '|';
+      }).join('\n');
+
+    return [header, separator, body].filter(Boolean).join('\n');
   }
 
   // クリップボードにコピー機能
@@ -318,6 +350,30 @@ document.addEventListener('DOMContentLoaded', () => {
         checkIcon.classList.add('d-none');
         copyCsvBtn.classList.remove('btn-primary');
         copyCsvBtn.classList.add('btn-outline-primary');
+      }, 1500);
+    } catch (err) {
+      console.error('クリップボードへのコピーに失敗しました:', err);
+    }
+  });
+
+  // MDテーブルをクリップボードにコピー機能
+  copyMdBtn.addEventListener('click', async () => {
+    const mdString = generateMdTableString();
+    if (!mdString) return;
+
+    try {
+      await navigator.clipboard.writeText(mdString);
+      
+      copyMdIcon.classList.add('d-none');
+      checkMdIcon.classList.remove('d-none');
+      copyMdBtn.classList.remove('btn-outline-info');
+      copyMdBtn.classList.add('btn-info');
+
+      setTimeout(() => {
+        copyMdIcon.classList.remove('d-none');
+        checkMdIcon.classList.add('d-none');
+        copyMdBtn.classList.remove('btn-info');
+        copyMdBtn.classList.add('btn-outline-info');
       }, 1500);
     } catch (err) {
       console.error('クリップボードへのコピーに失敗しました:', err);
