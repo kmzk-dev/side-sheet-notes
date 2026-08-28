@@ -176,9 +176,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // 表示テキストを選択件数に応じて変更（例: "選択した2行を削除"）
     ctxDeleteRow.innerText = selectedRowsCount > 1 ? `選択した${selectedRowsCount}行を削除` : '行を削除';
 
-    contextMenu.style.top = `${e.clientY}px`;
-    contextMenu.style.left = `${e.clientX}px`;
     contextMenu.style.display = 'block';
+
+    const menuWidth = contextMenu.offsetWidth;
+    const menuHeight = contextMenu.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    let left = e.clientX;
+    let top = e.clientY;
+
+    if (left + menuWidth > windowWidth) {
+      left = windowWidth - menuWidth - 4;
+    }
+    if (left < 0) {
+      left = 0;
+    }
+
+    if (top + menuHeight > windowHeight) {
+      top = windowHeight - menuHeight - 4;
+    }
+    if (top < 0) {
+      top = 0;
+    }
+
+    contextMenu.style.left = `${left}px`;
+    contextMenu.style.top = `${top}px`;
   }
 
   // 外部クリックでメニュー閉じ＆非セルクリックで選択解除
