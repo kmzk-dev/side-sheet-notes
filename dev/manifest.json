@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Side Sheet Notes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Spreadsheet形式のサイドバーメモ（CSV・MDテーブル出力対応）",
   "permissions": [
     "sidePanel",
