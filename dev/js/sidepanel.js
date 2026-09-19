@@ -420,4 +420,44 @@ document.addEventListener('DOMContentLoaded', () => {
     link.click();
     document.body.removeChild(link);
   });
+
+  // --- 移行案内モーダル制御 ---
+  const migrationModalEl = document.getElementById('migrationModal');
+  const openMigrationModalBtn = document.getElementById('openMigrationModalBtn');
+  const modalExportCsvBtn = document.getElementById('modalExportCsvBtn');
+  const dontShowAgainCheck = document.getElementById('dontShowAgainCheck');
+
+  if (migrationModalEl) {
+    const migrationModal = new bootstrap.Modal(migrationModalEl);
+
+    // 起動時の自動表示チェック（非表示フラグがなければ自動オープン）
+    chrome.storage.local.get(['dontShowMigrationModal'], (result) => {
+      if (!result.dontShowMigrationModal) {
+        migrationModal.show();
+      } else if (dontShowAgainCheck) {
+        dontShowAgainCheck.checked = true;
+      }
+    });
+
+    // ヘッダーのボタンクリックで手動表示
+    if (openMigrationModalBtn) {
+      openMigrationModalBtn.addEventListener('click', () => {
+        migrationModal.show();
+      });
+    }
+
+    // 「次回から自動表示しない」チェックボックスの変更監視
+    if (dontShowAgainCheck) {
+      dontShowAgainCheck.addEventListener('change', (e) => {
+        chrome.storage.local.set({ dontShowMigrationModal: e.target.checked });
+      });
+    }
+
+    // モーダル内のCSVダウンロードボタン
+    if (modalExportCsvBtn) {
+      modalExportCsvBtn.addEventListener('click', () => {
+        exportCsvBtn.click();
+      });
+    }
+  }
 });

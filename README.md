@@ -1,5 +1,12 @@
 # Side Sheet Notes
 
+> [!IMPORTANT]
+> **【重要】後継アプリ「Penta Note Pro」への機能統合・提供終了のお知らせ**  
+> 本拡張機能（Side Sheet Notes）は、上位版メモ拡張機能 **[Penta Note Pro](https://chromewebstore.google.com/detail/penta-note-pro/afkpnjkljhemojcoikkmbjlcdoacbcjc)**（[公式ガイド](https://fillmee.com/penta-note-pro/prod/readme/)）への機能統合に伴い、**提供を終了し、Chrome ウェブストアから削除されます**。  
+> - **機能の引き継ぎ**: Side Sheet Notes のスプレッドシート機能（SHEETモード）はそのまま引き継がれており、さらにテキストモードやTODOモード、5ページ管理に対応した上位互換となっています（※出力機能は **MDテーブルコピー** および **CSVファイルダウンロード** が継続利用可能。CSVコピー機能は廃止されました）。  
+> - **ストア削除後のご利用**: ストア削除後もお使いのブラウザから本拡張機能を削除しない限り引き続きご利用いただけますが、今後の機能改善やアップデートは行われません。継続的な改善が提供される **Penta Note Pro** への移行をお願いいたします。  
+> - **データ保存**: 移行前に、現在の表データをCSVエクスポート等で退避いただくようお願いいたします。
+
 Side Sheet Notes は、Google Chromeのサイドバー上で手軽にメモ入力・データ整理が行えるスプレッドシート型のメモ帳拡張機能です。  
 シンプルなUIで素早い入力を可能にし、入力データはブラウザに自動保存されます。作成したデータはCSVやMarkdownテーブル形式でのコピー、およびCSVファイル出力が可能です。
 

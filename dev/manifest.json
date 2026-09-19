@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Side Sheet Notes",
-  "version": "1.1.1",
-  "description": "Spreadsheet形式のサイドバーメモ（CSV・MDテーブル出力対応）",
+  "version": "1.2.0",
+  "description": "【統合・移行案内】Spreadsheet形式のサイドバーメモ（後継版Penta Note Proへの移行をお願いします）",
   "permissions": [
     "sidePanel",
     "storage"

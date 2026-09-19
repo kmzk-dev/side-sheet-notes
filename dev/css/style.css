@@ -5,8 +5,9 @@ body {
 }
 
 .table-container {
-  max-height: calc(100vh - 60px);
+  flex: 1 1 auto;
   overflow: auto;
+  min-height: 0;
 }
 
 .sheet-cell {
@@ -57,6 +58,16 @@ tr.selected-row td.sheet-cell {
   z-index: 1000;
   font-size: 0.8rem;
   min-width: 140px;
+}
+
+/* 移行案内ボタン */
+#openMigrationModalBtn {
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+#openMigrationModalBtn:hover, #openMigrationModalBtn:focus {
+  background-color: #ffca2c !important;
+  border-color: #ffc720 !important;
+  transform: translateY(-1px);
 }
 
 /* ヘッダーアイコンボタンのホバー・フォーカス時カラー変更 */
